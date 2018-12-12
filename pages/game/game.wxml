@@ -1,0 +1,28 @@
+<!--pages/game/game.wxml-->
+<view class="downView" >
+    <text class="winNum" >
+        您已经获胜了<text >{{winNum}}</text>次
+    </text>
+    <view class="showView">
+        <image class="gestuserImgL" src="{{imageAiScr}}" />
+        <text class="winOrLost">{{gameResult}}</text>   
+        <image src="{{imgUserSrc}}" class="gestuserImgR"/>
+    </view>
+
+
+    <view class="chooseForUserView" >
+        <text class="" > 少年，出拳吧</text>
+        <view class="choose-V">
+            <block wx:for="{{srcs}}" wx:key="{{item.id}}">
+                <view class="choose-view" bindtap="changeForChoose" id="{{index}}">
+                    <image class="choose-image" src="{{item}}" ></image>
+                </view>
+            </block>
+        </view>
+
+        <button wx:if="{{btnState == true}}" class="againBtn" bindtap = "again">再来</button>
+        <button wx:if="{{tzModel == false}}" class="againBtn" bindtap = "tz">挑战模式</button>
+        <button wx:if="{{wjModel == false}}" class="againBtn" bindtap = "wj">五局三胜</button>
+        <button wx:if="{{remake == true}}" class="againBtn" bindtap = "remake">重新开始</button>
+    </view>
+</view>
