@@ -79,6 +79,13 @@ Page({
       //如果平局
       if(user == ai){
          str = '平局!';
+         //平局 则不计入次数内
+         
+          this.setData({
+            chooseNum:parseInt(this.data.chooseNum)-1
+          })
+         
+        
       }
 
       //刷新数据
@@ -110,7 +117,7 @@ Page({
 
   again(){
       
-      if(this.data.chooseNum>5){
+      if(this.data.wjModel  && this.data.chooseNum>4){
         this.getResult();
         if(this.data.gameResultCode){
           wx.showModal({
@@ -141,19 +148,19 @@ Page({
   },
   //挑战模式
   tz(){
+    this.remake();
     this.setData({
 
       tzModel:true,
-      wjModel:true,
       chooseNum:0
     })
     this.timerGo()
   },
   //五局三胜模式
   wj(){
+    this.remake();
     this.setData({
 
-      tzModel:true,
       wjModel:true,
       chooseNum:0
     })
@@ -184,7 +191,8 @@ Page({
       remake:false,
       btnState:false,
       gameResult:'',
-      winNum:0
+      winNum:0,
+      chooseNum:0
     })
   }
 })
