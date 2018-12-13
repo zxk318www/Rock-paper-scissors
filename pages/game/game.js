@@ -63,17 +63,17 @@ Page({
          //获胜后增加次数、改变文字内容、从新缓存获胜次数
          num++;
          str = 'Ho~\n你赢了!';
-         wx.setStorageSync('winNum', num);
+        // wx.setStorageSync('winNum', num);
       };
       if(user == "../../image/jiandao.png" && ai == "../../image/bu.png"){
          num++;
          str = 'Ho~\n你赢了!';
-         wx.setStorageSync('winNum', num);
+        // wx.setStorageSync('winNum', num);
       };
       if(user== "../../image/bu.png" && ai == "../../image/shitou.png"){
          num++;
          str = 'Ho~\n你赢了!';
-         wx.setStorageSync('winNum', num);
+        // wx.setStorageSync('winNum', num);
       };
 
       //如果平局
@@ -152,7 +152,8 @@ Page({
     this.setData({
 
       tzModel:true,
-      chooseNum:0
+      chooseNum:0,
+      remake: true
     })
     this.timerGo()
   },
